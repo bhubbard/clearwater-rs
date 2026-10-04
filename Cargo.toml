@@ -1,0 +1,38 @@
+[package]
+name = "clearwater-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Brandon Hubbard <bhubbard@hubbardlabs.com>", "Aurélien G. (upstream Clearwater)"]
+description = "Real-time, photoreal shallow water physics and rendering engine in Rust. Tessendorf FFT ocean waves, refracted-grid caustics with chromatic dispersion, 2D heightfield ripples, and procedural seabed synthesis."
+license = "MIT"
+repository = "https://github.com/bhubbard/clearwater-rs"
+homepage = "https://github.com/bhubbard/clearwater-rs"
+keywords = ["water", "ocean", "fft", "caustics", "rendering"]
+categories = ["graphics", "game-development", "simulation"]
+
+[lib]
+name = "clearwater"
+path = "src/lib.rs"
+
+[[bin]]
+name = "clearwater"
+path = "src/main.rs"
+
+[dependencies]
+rustfft = "6.2"
+num-complex = "0.4"
+glam = "0.29"
+rand = "0.8"
+rand_distr = "0.4"
+rayon = "1.10"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+axum = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+tempfile = "3"
