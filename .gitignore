@@ -1,6 +1,7 @@
 /target
 *.html
 !templates/index.html
+!docs/**
 *.png
 *.jpg
 sim_output/
